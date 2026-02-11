@@ -93,8 +93,14 @@ AnimatorController:
   m_Name: PLAYER
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: New Bool
-    m_Type: 4
+  - m_Name: horizInput
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: YInput
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
