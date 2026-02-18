@@ -44,7 +44,7 @@ public class SceneLoader : MonoBehaviour
         isPaused = false;
     }
     
-    public voidi QuitGame()
+    public void QuitGame()
     {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
