@@ -38,6 +38,12 @@ public class SceneLoader : MonoBehaviour
         else
         PauseGame();
     }
+
+    public void PauseGame()
+    {
+       Time.timeScale = 0f;
+       isPaused = true;
+    }
     public void ResumeGame()
     {
         Time.timeScale = 1f;

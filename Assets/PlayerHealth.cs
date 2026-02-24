@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth: MonoBehaviour, IDamageable
 {
@@ -6,17 +7,28 @@ public class PlayerHealth: MonoBehaviour, IDamageable
     [SerializeField] float invulnerabilityDuration = 1f;
     [SerializeField] float blinkInterval = 0.1f; 
 
-    float currentHealth;
-    float invulnerabilityTimer;
+    public float currentHealth;
+    private float  invulnerabilityTimer = 0f ;
+    private float blinkTimer = 0f;
+    private SpriteRenderer spriteRenderer;
+    private bool isBlinking = false;
+
+
+
+    public Slider healthSlider;
 
     SpriteRenderer sprite;
-    float blinkTimer;
     bool blinking;
 
     void Awake()
     {
         currentHealth = maxHealth;
         sprite = GetComponent<SpriteRenderer>(); //GetComponent is a function hence the "()"
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
     }
     void Update()
     {
@@ -34,6 +46,12 @@ public class PlayerHealth: MonoBehaviour, IDamageable
         return false;
 
         currentHealth -= amount;
+
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
+
         if(currentHealth <= 0f)
         {
             Die();
@@ -63,7 +81,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
 
         }
         sprite.enabled =
-        Mathf.FloorToInt(blinkTimer/blinkInterval) % 2 ==0;
+        Mathf.FloorToInt(blinkTimer/blinkInterval) % 2 == 0;
     }
     void Die()
     {
