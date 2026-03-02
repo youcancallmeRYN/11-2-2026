@@ -9,7 +9,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
 
     public float currentHealth;
     private float  invulnerabilityTimer = 0f ;
-    private float blinkTimer = 0f;
+    private float blinkTimer = 0.1f;
     private SpriteRenderer spriteRenderer;
     private bool isBlinking = false;
 
