@@ -12,6 +12,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
     private float blinkTimer = 0.1f;
     private SpriteRenderer spriteRenderer;
     private bool isBlinking = false;
+    
 
 
 
@@ -46,6 +47,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
         return false;
 
         currentHealth -= amount;
+        CameraShakeManager.Instance.Shake(2f, 0.25f);
 
         if (healthSlider != null)
         {
