@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using  System.Collections;
 
 public class CameraShakeManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class CameraShakeManager : MonoBehaviour
     StartCoroutine(ShakeRoutine(intensity,duration));
    }
 
-   private System.Collections.IEnumerator ShakeRoutine(float intensity, float duration)
+   private IEnumerator ShakeRoutine(float intensity, float duration)
    {
     noise.AmplitudeGain = intensity;
     yield return new WaitForSeconds(duration);
