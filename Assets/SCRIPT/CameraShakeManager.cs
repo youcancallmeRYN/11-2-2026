@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine;
-using  System.Collections;
+using System.Collections;
 
 public class CameraShakeManager : MonoBehaviour
 {
@@ -16,8 +16,8 @@ public class CameraShakeManager : MonoBehaviour
    
    public void Shake(float intensity, float duration)
    {
-    StopAllCoroutines();
-    StartCoroutine(ShakeRoutine(intensity,duration));
+      StopAllCoroutines();
+      StartCoroutine(ShakeRoutine(intensity,duration));
    }
 
    private IEnumerator ShakeRoutine(float intensity, float duration)
